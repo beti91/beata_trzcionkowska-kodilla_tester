@@ -19,12 +19,12 @@ public class Grades {
         System.out.println(grades[9]);
     }
     public void getAverage() {
-        int quantity = grades.length;
-        int sum = 0;
-        for (int i =0; i < grades.length; i++) {
+        int quantity = size;
+        double sum = 0.0;
+        for (int i =0; i < size; i++) {
             sum += grades[i];
         }
-        int average = sum / quantity;
+        double average = sum / quantity;
         System.out.println(average);
     }
 
