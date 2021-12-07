@@ -14,10 +14,11 @@ public class Grades {
         this.grades[this.size] = value;
         this.size++;
     }
-    public void getLastGrade() {
-        int grade = grades[9];
-        System.out.println(grades[9]);
+    int getLastGrade() {
+        return grades[9];
     }
+
+
     public void getAverage() {
         int quantity = size;
         double sum = 0.0;

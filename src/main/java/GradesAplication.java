@@ -12,8 +12,12 @@ public class GradesAplication
         oceny.add(4);
         oceny.add(5);
         oceny.add(4);
-   oceny.getLastGrade();
+
    oceny.getAverage();
+   oceny.getLastGrade();
+   System.out.println(oceny.getLastGrade());
+
+
     }
 
 

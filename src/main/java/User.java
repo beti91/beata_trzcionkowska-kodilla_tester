@@ -6,7 +6,6 @@ public class User {
         this.imie = imie;
         this.wiek = wiek;
     }
-
     String getImie() {
         return this.imie;
     }
@@ -22,7 +21,6 @@ public class User {
         User david = new User("David", 13);
         User eva = new User("Eva", 18);
         User frankie = new User("Frankie", 45);
-
         User[] users = {anna, betty, carl, david, eva, frankie};
 
 
