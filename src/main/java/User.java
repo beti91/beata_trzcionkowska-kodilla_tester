@@ -22,10 +22,23 @@ public class User {
         User eva = new User("Eva", 18);
         User frankie = new User("Frankie", 45);
         User[] users = {anna, betty, carl, david, eva, frankie};
+        int ilosc = users.length;
+        double sum = 0.0;
 
 
+ for (int i=0; i < users.length; i++) {
+      sum = sum +users[i].wiek;
 
+ }
+ double average = sum/ilosc;
+ System.out.println(average);
+ for(int i=0; i < users.length; i++) {
+     if (users[i].wiek < average) {
+         System.out.println(users[i].imie);
+     }
+ }
     }
+
 }
 
 
