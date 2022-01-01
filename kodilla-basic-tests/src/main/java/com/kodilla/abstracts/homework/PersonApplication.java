@@ -8,6 +8,9 @@ public class PersonApplication {
         Teacher teacher = new Teacher();
         Person person2 = new Person("Aga",31, teacher);
         person2.showResponsibilities();
+        Programmer programmer =  new Programmer();
+        Person person3 = new Person("Adam", 28, programmer);
+        person3.showResponsibilities();
     }
 
 }
