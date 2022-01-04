@@ -19,8 +19,8 @@ if (correct2) {
 } else {
     System.out.println("Metoda subtract nie dziala poprawnie dla liczb " + a +" i "+ b);
 }
-int squareResult = calculator.square(a);
-boolean correct3 = ResultChecker.assertEquals(25,squareResult);
+double squareResult = calculator.square(a);
+boolean correct3 = ResultChecker.assertEquals(25.00,squareResult);
 if (correct3) {
     System.out.println("Metoda square dziala poprawnie dla liczby " + a);
 } else {
