@@ -16,13 +16,11 @@ public class Volvo implements Car {
     @Override
     public void increaseSpeed() {
         this.speed = speed * 3;
-        System.out.println(speed);
     }
 
     @Override
     public void decreaseSpeed() {
         this.speed = speed / 3;
-        System.out.println(speed);
     }
 }
 

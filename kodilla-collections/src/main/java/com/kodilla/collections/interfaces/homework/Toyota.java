@@ -15,12 +15,10 @@ public class Toyota implements Car {
     @Override
     public void increaseSpeed() {
         this.speed = speed * 4;
-        System.out.println(speed);
     }
 
     @Override
     public void decreaseSpeed() {
         this.speed = speed / 4;
-        System.out.println(speed);
     }
 }
