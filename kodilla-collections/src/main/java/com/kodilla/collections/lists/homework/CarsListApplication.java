@@ -18,16 +18,12 @@ public class CarsListApplication {
 
         Volvo volvo = new Volvo(60);
 
+        cars.remove(0);
+        cars.remove(volvo);
+        System.out.println(cars.size());
+
         for(Car car: cars) {
             CarUtils.describeCar(car); }
-
-            cars.remove(0);
-            cars.remove(volvo);
-
-            for(Car car: cars) {
-                CarUtils.describeCar(car);
-                System.out.println(cars.size());
-
-            }
     }
-}
+    }
+

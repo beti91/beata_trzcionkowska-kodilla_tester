@@ -1,5 +1,7 @@
 package com.kodilla.school;
 
+import java.util.Arrays;
+
 public class Grades {
 
     private int[] values;
@@ -20,7 +22,8 @@ public class Grades {
         return values;
     }
 public double getAverage() {
-        if (this.values.length ==0) {
+    System.out.println(Arrays.toString(this.values));
+    if (this.values.length ==0) {
             return 0;
         }
         double sum = 0;

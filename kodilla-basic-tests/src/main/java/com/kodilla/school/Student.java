@@ -43,7 +43,7 @@ public class Student {
         return this.physics.getAverage();
     }
     public double getGeographyAverage() {
-        return this.history.getAverage();
+        return this.geography.getAverage();
     }
     public double getHistoryAverage() {
         return this.history.getAverage();
