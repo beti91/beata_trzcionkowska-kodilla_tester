@@ -23,7 +23,7 @@ public class CashMachineTestSuite {
         assertEquals(1000, values[1]);
     }
     @Test
-    public void testSaldo() {
+    public void shouldHave500Saldo() {
         CashMachine cashMachine = new CashMachine();
         cashMachine.add(500);
         cashMachine.add(500);
@@ -34,11 +34,12 @@ public class CashMachineTestSuite {
 
     }
     @Test
-    public void testOfQuantity() {
+    public void shouldHaveTwoQuantity() {
         CashMachine cashMachine = new CashMachine();
         cashMachine.add(100);
         cashMachine.add(500);
 
         assertEquals(2, cashMachine.quantity());
     }
+
 }
