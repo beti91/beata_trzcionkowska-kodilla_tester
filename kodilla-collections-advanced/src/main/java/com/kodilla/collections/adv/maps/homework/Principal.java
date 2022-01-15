@@ -9,6 +9,7 @@ public class Principal {
 
     public Principal(String principal, String schoolName) {
         this.principal = principal;
+        this.schoolName = schoolName;
     }
 
     public String getPrincipal() {

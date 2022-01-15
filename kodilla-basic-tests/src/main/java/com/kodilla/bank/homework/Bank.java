@@ -1,7 +1,7 @@
 package com.kodilla.bank.homework;
 
 public class Bank {
-    private int[] cashMachine;
+    private cashMachine[];
     private int size;
 
     public Bank() {
