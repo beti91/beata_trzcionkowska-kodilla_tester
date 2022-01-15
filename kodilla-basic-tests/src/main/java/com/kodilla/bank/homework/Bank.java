@@ -1,32 +1,32 @@
 package com.kodilla.bank.homework;
 
 public class Bank {
-    private int[] cashMachines;
+    private int[] cashMachine;
     private int size;
 
     public Bank() {
 
-        this.cashMachines = new int[0];
+        this.cashMachine = new int[0];
         this.size = 0;
     }
 
-    public void add(int cashMachine) {
+    public void add(int cashMachines) {
         this.size++;
         int[] newTab = new int[this.size];
-        System.arraycopy(cashMachines, 0, newTab, 0, cashMachines.length);
-        newTab[this.size - 1] = cashMachine;
-        this.cashMachines = newTab;
+        System.arraycopy(cashMachine, 0, newTab, 0, cashMachine.length);
+        newTab[this.size - 1] = cashMachines;
+        this.cashMachine = newTab;
 
     }
 
     public int[] getCashMachines() {
-        return cashMachines;
+        return cashMachine;
     }
 
     public int bilans() {
         int sum = 0;
-        for (int i = 0; i < cashMachines.length; i++) {
-            sum += cashMachines[i];
+        for (int i = 0; i < cashMachine.length; i++) {
+            sum += cashMachine[i];
         }
         return sum;
     }
@@ -34,7 +34,7 @@ public class Bank {
     public int quantityOfCashWithDrawal() {
         int cash = 0;
         for (int i = 0; i < size; i++) {
-            if (cashMachines[i] < 0) {
+            if (cashMachine[i] < 0) {
                 cash++;
             }
         }
@@ -44,7 +44,7 @@ public class Bank {
     public int quantityOfCashDeposit() {
         int cash = 0;
         for (int i = 0; i < size; i++) {
-            if (cashMachines[i] > 0) {
+            if (cashMachine[i] > 0) {
                 cash++;
             }
         }
@@ -53,10 +53,10 @@ public class Bank {
 
     public double average() {
         double sum = 0;
-        for (int i = 0; i < cashMachines.length; i++) {
-            sum += cashMachines[i];
+        for (int i = 0; i < cashMachine.length; i++) {
+            sum += cashMachine[i];
         }
-        return sum / cashMachines.length;
+        return sum / cashMachine.length;
 
     }
 }
