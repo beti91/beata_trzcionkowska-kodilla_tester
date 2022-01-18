@@ -1,12 +1,12 @@
 package com.kodilla.bank.homework;
 
 public class Bank {
-    private cashMachine[];
+    private CashMachine[];
     private int size;
 
     public Bank() {
 
-        this.cashMachine = new int[0];
+        this.CashMachine = new int[0];
         this.size = 0;
     }
 
@@ -25,8 +25,8 @@ public class Bank {
 
     public int bilans() {
         int sum = 0;
-        for (int i = 0; i < cashMachine.length; i++) {
-            sum += cashMachine[i];
+        for (int i = 0; i < size; i++) {
+            sum += CashMachine[i];
         }
         return sum;
     }
