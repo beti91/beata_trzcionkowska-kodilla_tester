@@ -1,53 +1,49 @@
 package com.kodilla.bank.homework;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class BankTestSuite {
 
-    @Test
-    public void shouldHaveZeroLength () {
-        Bank bank = new Bank();
-        int[] cashMachines = bank.getCashMachines();
-        assertEquals(0, cashMachines.length);
+    Bank bank = new Bank();
+    CashMachine cashMachine = new CashMachine();
+    CashMachine cashMachine2 = new CashMachine();
+    CashMachine CashMachine3 = new CashMachine();
+    @BeforeEach
+    public void prepare() {
+        cashMachine.add(-200);
+        cashMachine.add(100);
+        cashMachine2.add(-300);
+        cashMachine2.add(200);
+        CashMachine3.add(100);
+        bank.add(cashMachine);
+        bank.add(cashMachine2);
+        bank.add(CashMachine3);
     }
     @Test
     public void shouldHave1000bilans () {
-        Bank bank = new Bank();
-        bank.add(200);
-        bank.add(-200);
-        bank.add(500);
-        bank.add(500);
 
-        assertEquals(1000, bank.bilans());
-
+        assertEquals(-100, bank.bilans());
     }
     @Test
     public void shouldHaveQuantityOfCashWithdrawal () {
-        Bank bank = new Bank();
-        bank.add(500);
-        bank.add(-500);
 
-        assertEquals(1, bank.quantityOfCashWithDrawal());
-    }
+        assertEquals(2, bank.quantityOfCashWithDrawal());}
     @Test
     public void shouldHaveQuantityOfCashDeposit() {
-        Bank bank = new Bank();
-        bank.add(500);
-        bank.add(100);
-        bank.add(-100);
 
-        assertEquals(2, bank.quantityOfCashDeposit());
+        assertEquals(3, bank.quantityOfCashDeposit());
     }
-
     @Test
-    public void shouldHaveAverageMinus () {
-        Bank bank = new Bank();
-        bank.add(-100);
-        bank.add(-100);
-        bank.add(100);
+    public void testAverageMinus() {
 
-        assertEquals(-33.3, bank.average(), 0.1);
+        assertEquals(-250, bank.averageminus(), 0.01);
+    }
+    @Test
+    public void testAveragePlus() {
+
+        assertEquals(133.3, bank.averageplus(), 0.1);
     }
 }
