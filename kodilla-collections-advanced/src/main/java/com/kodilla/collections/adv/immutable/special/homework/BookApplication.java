@@ -9,6 +9,9 @@ public class BookApplication {
         bookManager1.createBook("Paper towns", "John Green");
         BookManager bookManager2 = new BookManager();
         bookManager2.createBook("Harry Potter","J.K. Rowling");
+        BookManager bookManager3 = new BookManager();
+        bookManager3.createBook("Harry Potter","J.K. Rowling");
+
 
         System.out.println(bookManager == bookManager1);
         System.out.println(bookManager.equals(bookManager1));
@@ -16,6 +19,8 @@ public class BookApplication {
         System.out.println(bookManager1.equals(bookManager2));
         System.out.println(bookManager == bookManager2);
         System.out.println(bookManager.equals(bookManager2));
+        System.out.println(bookManager2==bookManager3);
+        System.out.println(bookManager2.equals(bookManager3));
 
     }
 }
