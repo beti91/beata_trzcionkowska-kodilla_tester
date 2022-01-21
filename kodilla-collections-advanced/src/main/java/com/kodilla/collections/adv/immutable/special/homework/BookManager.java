@@ -15,11 +15,10 @@ public class BookManager {
         Book newBook = new Book(title, author);
         for (int n = 0; n < books.size(); n++) {
             Book book = books.get(n);
-            if (newBook != books.get(n)) {
+            if (newBook != book) {
                 books.add(newBook);
-
             }
         }
-        return new Book(title, author);
+        return newBook;
     }
 }
