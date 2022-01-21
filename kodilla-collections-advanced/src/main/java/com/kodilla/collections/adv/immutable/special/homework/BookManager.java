@@ -5,9 +5,9 @@ import java.util.List;
 
 
 public class BookManager {
+    private static List<Book> books = new ArrayList<>();
 
     public static Book createBook(String title, String author) {
-        List<Book> books = new ArrayList<>();
         books.add(new Book("Twilight", "Stephane Meyer"));
         books.add(new Book("Paper towns", "John Green"));
         books.add(new Book("Harry Potter", "J.K. Rowling"));

@@ -10,10 +10,15 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class FlightFinderTestSuite {
 
-    FlightFinder flightFinder = new FlightFinder();
+
 
     @Test
-    public void testFindFlightFrom () {
+    public void testFindFlightsFrom () {
+        FlightFinder flightFinder = new FlightFinder();
+        flightFinder.add(new Flight("Cracow", "London"));
+
+     List<Flight> result = flightFinder.findFlightsFrom("Cracow");
+
 
 
 

@@ -1,10 +1,13 @@
 package com.kodilla.collections.adv.immutable.special.homework;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class Book {
     private String title;
     private String author;
+
 
     public Book(String title, String author) {
         this.title = title;
