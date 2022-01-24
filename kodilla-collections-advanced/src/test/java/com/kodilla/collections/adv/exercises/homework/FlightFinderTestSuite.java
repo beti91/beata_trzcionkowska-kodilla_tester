@@ -15,7 +15,7 @@ class FlightFinderTestSuite {
     @Test
     public void testFindFlightsFrom () {
         FlightFinder flightFinder = new FlightFinder();
-        flightFinder.add(new Flight("Cracow", "London"));
+        flightFinder.(new Flight("Cracow", "London"));
 
      List<Flight> result = flightFinder.findFlightsFrom("Cracow");
 

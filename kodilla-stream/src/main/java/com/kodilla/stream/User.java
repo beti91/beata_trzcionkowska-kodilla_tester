@@ -23,6 +23,9 @@ public class User {
         return age;
     }
 
+
+
+
     public int getNumberOfPost() {
         return numberOfPost;
     }

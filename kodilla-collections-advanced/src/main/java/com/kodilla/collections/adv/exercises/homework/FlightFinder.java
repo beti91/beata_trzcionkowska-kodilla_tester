@@ -29,4 +29,8 @@ public class FlightFinder {
 
 
     }
+    public void add(String departure, String arrival) {
+        List<Flight> flights = flightFinder.
+
+    }
 }
