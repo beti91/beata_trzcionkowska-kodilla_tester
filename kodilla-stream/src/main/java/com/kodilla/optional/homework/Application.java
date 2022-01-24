@@ -16,12 +16,14 @@ public class Application {
         for (Student student : students) {
 
             Optional<Teacher> optionalStudent = Optional.ofNullable(student.teacher);
-          optionalStudent.ifPresent(u-> System.out.println("uczen:" + u.getName() + ",nauczyciel" + u.getName()));
+            optionalStudent.ifPresent(u -> System.out.println("uczen:" + u.getName() + ",nauczyciel" + u.getName()));
+
+        }
 
 
         }
 
 
-        }
+
     }
 

@@ -13,6 +13,10 @@ public class Teacher {
         return name;
     }
 
+    public String getStudentname(Student student) {
+        return student.getName();
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
