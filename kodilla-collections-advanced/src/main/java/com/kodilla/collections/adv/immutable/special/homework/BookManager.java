@@ -8,17 +8,18 @@ public class BookManager {
     private static List<Book> books = new ArrayList<>();
 
     public static Book createBook(String title, String author) {
-        books.add(new Book("Twilight", "Stephane Meyer"));
-        books.add(new Book("Paper towns", "John Green"));
-        books.add(new Book("Harry Potter", "J.K. Rowling"));
 
-        Book newBook = new Book(title, author);
         for (int n = 0; n < books.size(); n++) {
             Book book = books.get(n);
-            if (newBook != book) {
-                books.add(newBook);
+            if (book.getTitle().equals(title) && book.getAuthor().equals(author)) {
+                return book;
             }
         }
+        Book newBook = new Book(title, author);
+        books.add(newBook);
         return newBook;
+    }
+    public static int size() {
+        return books.size();
     }
 }

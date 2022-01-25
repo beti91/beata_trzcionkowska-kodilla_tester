@@ -6,11 +6,11 @@ import java.util.List;
 
 public class FlightFinder {
 
-    List<Flight> flightFinder = new ArrayList<>();
+
 
     public List<Flight> findFlightsFrom(String departure) {
         List<Flight> result = new ArrayList<>();
-        for (Flight flight : flightFinder) {
+        for (Flight flight : FlightRepository.getFlightsTable()) {
             if (flight.getDeparture().equals(departure)) {
                 result.add(flight);
             }
@@ -20,7 +20,7 @@ public class FlightFinder {
 
     public List<Flight> findFlightsTo(String arrival) {
         List<Flight> result = new ArrayList<>();
-        for (Flight flight : flightFinder) {
+        for (Flight flight : FlightRepository.getFlightsTable()) {
             if (flight.getArrival().equals(arrival)) {
                 result.add(flight);
             }
@@ -28,9 +28,7 @@ public class FlightFinder {
         return result;
 
 
-    }
-    public void add(String departure, String arrival) {
-        List<Flight> flights = flightFinder.
+
 
     }
 }
