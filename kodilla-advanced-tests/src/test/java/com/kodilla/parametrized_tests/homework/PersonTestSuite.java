@@ -7,13 +7,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class PersonTestSuite {
 
-    Person person = new Person(1.70, 70);
+
 
     @ParameterizedTest
-    @MethodSource(value = "com.kodilla.parametrized_tests.homework.PersonSource#provideStringToTestBMI")
-    public void ShouldCalculateBMI(String expected) {
+    @MethodSource(value = "com.kodilla.parametrized_tests.homework.PersonSource#provideArgumentsToTestBMI")
+    public void ShouldCalculateBMI(String expected, Person person) {
         assertEquals(expected, person.getBMI());
-
 
     }
 }

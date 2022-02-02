@@ -12,8 +12,8 @@ class GamblingMachineTestSuite {
 
 
     @ParameterizedTest
-    @CsvFileSource(resources = "/UserNumbers.csv", numLinesToSkip = 1)
-    public void ShouldCalculateUserNumbers(String userNumbers, int expected) throws InvalidNumbersException {
+    @CsvFileSource(resources = "/UserNumbers.csv")
+    public void ShouldCalculateUserNumbers(String userNumbers) throws InvalidNumbersException {
         GamblingMachine machine = new GamblingMachine();
         String[] numbers = userNumbers.split(",");
         Set<Integer> numbers1 = new HashSet<>();
@@ -23,7 +23,7 @@ class GamblingMachineTestSuite {
         }
 
 
-            assertEquals(expected, machine.howManyWins(numbers1));
+            assertThrows(InvalidNumbersException.class, () -> machine.howManyWins(numbers1));
 
 
     }
