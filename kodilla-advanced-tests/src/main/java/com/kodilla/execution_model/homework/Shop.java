@@ -12,14 +12,14 @@ public class Shop {
         this.orders.add(order);
     }
 
-public Order getOrdersFromDates(LocalDate date1, LocalDate date2) {
-        for(Order order: orders) {
-            date1.isEqual(order.getDate());
-            date1.isAfter(order.getDate());
-            date2.isBefore(order.getDate());
-        return order;
-}
-    return null;
+public List<Order>  getOrdersFromDates(LocalDate date1, LocalDate date2) {
+    List<Order> ordersD = new ArrayList<>();
+    for (Order order : orders) {
+         if(date2.isAfter(order.getDate()) &&
+          date1.isBefore(order.getDate()))
+            ordersD.add(order);
+    }
+    return ordersD;
 }
 
 public List<Order> getOrderbetweenValues(double value1, double value2) {

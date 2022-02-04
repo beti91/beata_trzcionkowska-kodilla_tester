@@ -34,13 +34,14 @@ class ShopTestSuite {
 }
 @Test
     public void shouldReturnOrdersFromTwoDates() {
-
-    Order result = shop.getOrdersFromDates(LocalDate.of(2021,11,1), LocalDate.of(2021,12,27));
-    assertEquals(laptop, result);
+    List<Order> expected = new ArrayList<>();
+    expected.add(laptop);
+    List<Order> result = shop.getOrdersFromDates(LocalDate.of(2021,11,1), LocalDate.of(2021,12,27));
+    assertEquals(expected, result);
 }
 @Test
     public void shouldReturnOrdersBetweenValues() {
-        List result = shop.getOrderbetweenValues(1500,1600);
+        List<Order> result = shop.getOrderbetweenValues(1500,1600);
         List<Order> expected = new ArrayList<>();
         expected.add(WashingMachine);
         assertEquals(expected, result);

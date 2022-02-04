@@ -1,20 +1,25 @@
 package com.kodilla.mockito.homework;
 
 import javax.management.Notification;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Monity {
 
-    private Map<Location, Customer> notifications = new HashMap<>();
+    private Map<Location, List<Customer>> notifications = new HashMap<>();
 
 
-    public void addSubscriberToLocation (Customer customer, Location location) {
-        this.notifications.put(location, customer);
+    public void addSubscriberToLocation (Location location, Customer customer) {
+
     }
     public void sendNotifications(Notification notification) {
-        this.notifications.forEach((customer, location) -> customer.receive(notification));
-    }
+
+       }
+
+
+
     public void removeLocation(Customer customer, Location location) {
         this.notifications.remove(location);
     }
