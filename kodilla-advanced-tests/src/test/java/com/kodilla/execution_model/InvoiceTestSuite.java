@@ -1,6 +1,6 @@
 package com.kodilla.execution_model;
 
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -13,11 +13,6 @@ class InvoiceTestSuite {
 
     @Test
     public void shouldAddItemsToInvoice() {
-        // Given
-        invoice.addItem(milk);
-        invoice.addItem(eggs);
-        invoice.addItem(bread);
-
         // When
         int numberOfItems = invoice.getSize();
 
@@ -28,15 +23,6 @@ class InvoiceTestSuite {
 
     @Test
     public void shouldGetExistingItem() {
-        //Given
-        Invoice invoice = new Invoice();
-        Item milk = new Item("Milk", 3.50);
-        Item eggs = new Item("Eggs", 8.00);
-        Item bread = new Item("Bread", 4.15);
-        invoice.addItem(milk);
-        invoice.addItem(eggs);
-        invoice.addItem(bread);
-
         //When
         Item result = invoice.getItem(2);
 
@@ -47,15 +33,6 @@ class InvoiceTestSuite {
 
     @Test
     public void shouldReturnNullWhenPassingNegativeIndex() {
-        //Given
-        Invoice invoice = new Invoice();
-        Item milk = new Item("Milk", 3.50);
-        Item eggs = new Item("Eggs", 8.00);
-        Item bread = new Item("Bread", 4.15);
-        invoice.addItem(milk);
-        invoice.addItem(eggs);
-        invoice.addItem(bread);
-
         //When
         Item result = invoice.getItem(-3);
 
@@ -65,14 +42,6 @@ class InvoiceTestSuite {
 
     @Test
     public void shouldReturnNullWhenPassingOutOfRangeIndex() {
-        //Given
-        Invoice invoice = new Invoice();
-        Item milk = new Item("Milk", 3.50);
-        Item eggs = new Item("Eggs", 8.00);
-        Item bread = new Item("Bread", 4.15);
-        invoice.addItem(milk);
-        invoice.addItem(eggs);
-        invoice.addItem(bread);
 
         //When
         Item result = invoice.getItem(7);
@@ -83,20 +52,31 @@ class InvoiceTestSuite {
 
     @Test
     public void shouldClearInvoice() {
-        //Given
-        Invoice invoice = new Invoice();
-        Item milk = new Item("Milk", 3.50);
-        Item eggs = new Item("Eggs", 8.00);
-        Item bread = new Item("Bread", 4.15);
-        invoice.addItem(milk);
-        invoice.addItem(eggs);
-        invoice.addItem(bread);
 
         //When
         invoice.clear();
 
         //Then
         assertEquals(0, invoice.getSize());
+    }
+
+    @BeforeEach
+    public void initializeInvoice() {
+        invoice.addItem(milk);
+        invoice.addItem(eggs);
+        invoice.addItem(bread);
+    }
+    @AfterEach
+    public void resetValues() {
+        System.out.println("Resetting values...");
+    }
+    @BeforeAll
+    public static void displayIntroMessage() {
+        System.out.println("Starting testing");
+    }
+    @AfterAll
+    public static void displayGoodByeMessage() {
+        System.out.println("Finishing testing");
     }
 
 
