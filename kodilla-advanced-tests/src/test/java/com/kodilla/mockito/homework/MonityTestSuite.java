@@ -14,35 +14,59 @@ public class MonityTestSuite {
     Notification notification = Mockito.mock(Notification.class);
 
     @Test
-    public void SubscribedCustomerShouldReceiveMonityFromSpecificLocation () {
+    public void SubscribedCustomerShouldReceiveNotificationFromSpecificLocation () {
 monity.addSubscriberToLocation(location, customer);
 
-monity.sendNotifications(notification);
+monity.sendNotifications(notification, location);
 Mockito.verify(customer, Mockito.times(1)).receive(notification);
-
 
     }
     @Test
-    public void UnsubscribedLocationByCustomerShouldNotSendNotificationToCustomer() {
-Location London = Mockito.mock(Location.class);
-monity.addSubscriberToLocation(location, customer);
-monity.addSubscriberToLocation(London, customer);
-monity.removeLocation(customer, London);
 
-monity.sendNotifications(notification);
-Mockito.verify(customer, Mockito.times(1)).receive(notification);
+    public void shouldAddCustomerToExistingLocation () {
+        monity.addSubscriberToLocation(location, customer);
+        Customer customer1 = Mockito.mock(Customer.class);
+        monity.addSubscriberToLocation(location, customer1);
 
-
+        monity.sendNotifications(notification, location);
+        Mockito.verify(customer1, Mockito.times(1)).receive(notification);
+        Mockito.verify(customer, Mockito.times(1)).receive(notification);
     }
+
+    @Test
+    public void UnsubscribedLocationByCustomerShouldNotSendNotificationToCustomer() {
+        Location London = Mockito.mock(Location.class);
+        monity.addSubscriberToLocation(location, customer);
+        monity.addSubscriberToLocation(London, customer);
+        monity.removeSubscribedLocation(customer, location);
+
+        monity.sendNotifications(notification, location);
+        Mockito.verify(customer, Mockito.never()).receive(notification);
+    }
+
+@Test
+    public void shouldReceiveNotificationFromNotDeletedLocation() {
+    Location London = Mockito.mock(Location.class);
+    monity.addSubscriberToLocation(location, customer);
+    monity.addSubscriberToLocation(London, customer);
+    monity.removeSubscribedLocation(customer, location);
+
+    monity.sendNotifications(notification, London);
+    Mockito.verify(customer, Mockito.times(1)).receive(notification);
+}
+
+
+
     @Test
     public void UnsubscribedAllLocationShouldDeletedCustomerFromNotification  () {
         Location London = Mockito.mock(Location.class);
         monity.addSubscriberToLocation(location, customer);
         monity.addSubscriberToLocation(London, customer);
-        monity.removeLocation(customer, location);
-        monity.removeLocation(customer, London);
+        monity.removeCustomerFromAllLocations(customer);
 
-        monity.sendNotifications(notification);
+
+        monity.sendNotifications(notification, location);
+        monity.sendNotifications(notification, London);
         Mockito.verify(customer, Mockito.never()).receive(notification);
 
     }
@@ -55,22 +79,23 @@ monity.addSubscriberToLocation(London, customer);
 monity.addSubscriberToLocation(London, customer1);
 monity.addSubscriberToLocation(location, customer2);
 
-monity.sendNotifications(notification);
-Mockito.verify(customer2, Mockito.times(1)).receive(notification);
-
-
+monity.sendNotifications(notification, London);
+Mockito.verify(customer, Mockito.times(1)).receive(notification);
+Mockito.verify(customer1, Mockito.times(1)).receive(notification);
+Mockito.verify(customer2, Mockito.never()).receive(notification);
     }
     @Test
     public void ShouldSendNotificationToAllCustomers () {
         Customer customer1 = Mockito.mock(Customer.class);
         Customer customer2 = Mockito.mock(Customer.class);
 
-        monity.addSubscriberToLocation(location, customer);
+        monity.addSubscriber(customer1);
+        monity.addSubscriber(customer2);
 
 
-        monity.sendNotifications(notification);
-        Mockito.verify(customer, Mockito.times(1)).receive(notification);
-
+        monity.sendNotificationsToAllCustomers(notification);
+        Mockito.verify(customer1, Mockito.times(1)).receive(notification);
+        Mockito.verify(customer2, Mockito.times(1)).receive(notification);
 
     }
     @Test
@@ -78,10 +103,10 @@ Mockito.verify(customer2, Mockito.times(1)).receive(notification);
         Location London = Mockito.mock(Location.class);
         monity.addSubscriberToLocation(location, customer);
         monity.addSubscriberToLocation(London, customer);
-        monity.removeLocation(customer, London);
+        monity.removeLocation(London);
 
-        monity.sendNotifications(notification);
-        Mockito.verify(customer, Mockito.times(1)).receive(notification);
+        monity.sendNotifications(notification, London);
+        Mockito.verify(customer, Mockito.never()).receive(notification);
 
     }
 }
