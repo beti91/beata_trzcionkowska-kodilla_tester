@@ -4,7 +4,8 @@ public class Application {
 
     public static void main(String[] args) {
         DeliveryService deliveryService = new TruckDeliveryService();
-        ShippingCenter shippingCenter = new ShippingCenter(deliveryService);
-        shippingCenter.sendPackage("Hill Street 11, New York", 500);
+        NotificationService notificationService = new TruckNotificationService();
+        ShippingCenter shippingCenter = new ShippingCenter(deliveryService, notificationService);
+        shippingCenter.sendPackage("Hill Street 11, New York", 5000);
     }
 }
