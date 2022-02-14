@@ -11,8 +11,10 @@ import java.time.LocalTime;
 
 public class Clock {
 
-    public Clock() {
-        LocalTime.now();
+
+
+    public LocalTime Clock(LocalDateTime clock) {
+        return clock.toLocalTime();
     }
 
     @Override
