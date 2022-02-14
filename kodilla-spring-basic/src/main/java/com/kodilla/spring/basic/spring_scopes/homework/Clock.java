@@ -11,9 +11,9 @@ import java.time.LocalTime;
 
 public class Clock {
 
+    LocalDateTime clock;
 
-
-    public LocalTime Clock(LocalDateTime clock) {
+    public LocalTime Clock() {
         return clock.toLocalTime();
     }
 
