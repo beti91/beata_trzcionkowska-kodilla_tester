@@ -12,7 +12,7 @@ public class Sedan implements Car{
 
 
     @Override
-    public String getTypeCar(String type) {
+    public String getTypeCar() {
         return null;
     }
 }

@@ -11,7 +11,7 @@ public class Cabrio implements Car{
     }
 
     @Override
-    public String getTypeCar(String type) {
+    public String getTypeCar() {
         return "Cabrio";
     }
 }
