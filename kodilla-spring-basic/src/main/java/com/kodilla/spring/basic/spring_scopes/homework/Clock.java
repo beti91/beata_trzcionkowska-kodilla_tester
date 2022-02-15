@@ -11,10 +11,14 @@ import java.time.LocalTime;
 
 public class Clock {
 
-    LocalDateTime clock;
+   private LocalDateTime clock;
 
-    public LocalTime Clock() {
-        return clock.toLocalTime();
+    public  Clock() {
+        this.clock = LocalDateTime.now();
+    }
+
+    public LocalDateTime getClock() {
+        return clock;
     }
 
     @Override

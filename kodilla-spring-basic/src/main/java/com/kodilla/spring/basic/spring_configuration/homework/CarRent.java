@@ -3,6 +3,7 @@ package com.kodilla.spring.basic.spring_configuration.homework;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Random;
 
@@ -12,15 +13,11 @@ public class CarRent {
     @Bean
     public Car picCar() {
         Car car;
-        Random generator = new Random();
-        int chosen = generator.nextInt(3);
-        int zima = 0;
-        int wiosna = 1;
-        int lato = 2;
-        int jesien = 3;
-        if (chosen == 0) {
+        LocalDate date = LocalDate.now();
+
+        if (date.getMonthValue() == 12|| date.getMonthValue()==1|| date.getMonthValue() == 2) {
             car = new SUV();
-        } else if (chosen == 2) {
+        } else if (date.getMonthValue() == 6|| date.getMonthValue() == 7|| date.getMonthValue() == 8) {
             car = new Cabrio();
         } else {
             car = new Sedan();
@@ -30,11 +27,6 @@ public class CarRent {
 
     }
 
-    @Bean
-    public boolean lights() {
-        Car car;
 
-        return true;
-    }
 }
 

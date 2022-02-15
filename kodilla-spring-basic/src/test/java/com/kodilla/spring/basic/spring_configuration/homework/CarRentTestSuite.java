@@ -24,5 +24,15 @@ class CarRentTestSuite {
         List<String> types = Arrays.asList("Cabrio","SUV","Sedan");
         Assertions.assertTrue(types.contains(type));
     }
+    @Test
+    public void shouldHaveLightsOnOrOff () {
+        ApplicationContext context = new AnnotationConfigApplicationContext("com.kodilla.spring");
+        Car car = (Car) context.getBean("picCar");
+
+        boolean result = car.hasHeadlightsTurnedOn();
+
+        Assertions.assertFalse(result);
+
+    }
 
 }
