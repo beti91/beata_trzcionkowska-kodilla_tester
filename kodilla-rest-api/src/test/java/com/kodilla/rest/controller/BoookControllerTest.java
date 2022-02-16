@@ -28,4 +28,26 @@ class BoookControllerTest {
 
         assertThat(result).hasSize(2);
     }
+
+    @Test
+    public void shouldAddBooks() {
+
+        BookService bookServiceMock = Mockito.mock(BookService.class);
+        BookController bookController = new BookController(bookServiceMock);
+        bookController.addBook(new BookDto());
+
+        List<BookDto> result = bookController.getBooks();
+
+        List<BookDto> expected = new ArrayList<>();
+        expected.add(new BookDto());
+
+
+
+        assertEquals(expected, result);
+
+
+
+
+
+    }
 }
