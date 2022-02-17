@@ -32,9 +32,10 @@ class BoookControllerTest {
     @Test
     public void shouldAddBooks() {
 
-        BookService bookServiceMock = Mockito.mock(BookService.class);
-        BookController bookController = new BookController(bookServiceMock);
+        BookService bookService = new BookService();
+        BookController bookController = new BookController(bookService);
         bookController.addBook(new BookDto());
+
 
         List<BookDto> result = bookController.getBooks();
 
