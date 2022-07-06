@@ -7,20 +7,17 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 
+import java.util.List;
+
 public class AllegroTestingApp {
     public static void main(String[] args) {
         System.setProperty("webdriver.chrome.driver", "c:\\selenium-drivers\\chrome\\chromedriver.exe");
         WebDriver driver = new ChromeDriver();
         driver.get("https://www.ebay.pl/");
 
+        driver.findElements(By.className("s-item s-item__pl-on-bottom"));
 
-        WebElement inputField = driver.findElement(By.name("_nkw"));
-        inputField.sendKeys("mavic mini");
 
-        WebElement szukaj = driver.findElement(
-                By.xpath("//*[@id=\"gh-cat\"]/option[30]"));
-        WebElement wyszukaj = driver.findElement(By.xpath("//*[@id=\"gh-btn\"]"));
 
-        inputField.submit();
     }
 }
