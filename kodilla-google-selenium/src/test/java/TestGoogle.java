@@ -1,7 +1,7 @@
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-
+import pages.GoogleSearch;
 
 
 public class TestGoogle {
@@ -20,7 +20,7 @@ public class TestGoogle {
 
     @Test
     public void testGooglePage() {
-
+        GoogleSearch googleSearch = new GoogleSearch(driver);
+        googleSearch.searchResults();
     }
 }
-
